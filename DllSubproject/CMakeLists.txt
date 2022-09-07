@@ -28,5 +28,5 @@ target_sources(my_lib
 # NOTE: This **must** be private, otherwise targets linking
 #       against this will also define the EXPORTING_ macro.
 target_compile_definitions(my_lib
-	PRIVATE EXPORTING_
+	PRIVATE _EXPORTING
 )
