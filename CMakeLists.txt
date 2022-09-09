@@ -16,7 +16,7 @@ add_subdirectory(DllSubproject)
 set(CMAKE_IMPORT_LIBRARY_SUFFIX .dll)
 matlab_add_mex(
 	NAME mex_add_example
-	MODULE
+	SHARED
 	R2018a
 )
 
@@ -27,3 +27,7 @@ target_sources(mex_add_example
 target_link_libraries(mex_add_example
 	my_lib # Can't make this private, even though we would like to, because it must use the plain signature like the matlab_add_mex already does above (implicitly)
 )
+
+# Install the generated binaries into bin and lib directories
+# so they will be in the same location as the my_lib library.
+install(TARGETS mex_add_example)
