@@ -30,3 +30,11 @@ target_sources(my_lib
 target_compile_definitions(my_lib
 	PRIVATE _EXPORTING
 )
+
+# Install the output files into bin and lib folders which
+# code using this library should also install into. This
+# ensures, for example, that the generated .dll file is
+# copied into the same directory as the binary of the file
+# loading it, and therefore, that Windows will be able to
+# find it when the main application loads.
+install(TARGETS my_lib)
